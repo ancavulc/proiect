@@ -1,0 +1,73 @@
+<div class="cover" style="background-image: url('./assets/img/mountain.jpg');">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="login-card">
+      <div class="container">
+        <div class="login-header">
+          <h2>Register</h2>
+        </div>
+        <div class="login-body">
+          <h4>Please register only if you are a <b>certified instructor!</b></h4>
+          <h4 class="redirect">* this is only for instructors. Want to book one? Click <a class="redirect-btn"
+            routerLink="/">HERE</a> instead</h4>
+          <form >
+            <div class="form-group">
+              <label for="name">First Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter your first name"
+                [(ngModel)]="credentials.name" />
+            </div>
+            <div class="form-group">
+              <label for="surname">Surname</label>
+              <input type="text" class="form-control" name="surname" placeholder="Enter your surname"
+                [(ngModel)]="credentials.surname" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter email"
+                [(ngModel)]="credentials.email" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password"
+                [(ngModel)]="credentials.password" />
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" class="form-control" name="phoneNumber" placeholder="Enter your phone number"
+                [(ngModel)]="credentials.phoneNumber" />
+            </div>
+            <div class="form-group">
+              <label for="birthDate">Birth Date</label>
+              <input type="date" class="form-control" name="birthDate"
+                [(ngModel)]="credentials.birthDate" />
+            </div>
+            <div class="form-group">
+              <label for="town">Town of Origin</label>
+              <input type="text" class="form-control" name="town" placeholder="Enter your town of origin"
+                [(ngModel)]="credentials.town" />
+            </div>
+            <div class="form-group">
+              <label for="certificateSerie">Certificate Serie</label>
+              <input type="text" class="form-control" name="certificateSerie" placeholder="Enter your certificate serie"
+                [(ngModel)]="credentials.certificateSerie" />
+            </div>
+            <div class="form-group">
+              <label for="slope">Selected Slope</label>
+              <select class="form-control" name="slope" [(ngModel)]="credentials.slope">
+                <option *ngFor="let s of states" name="slope">{{s}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description" placeholder="Please describe yourself"
+              [(ngModel)]="credentials.description"></textarea>
+            </div>
+            <div class="login-button">
+              <button mat-raised-button color="accent" type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-light navbar-expand-sm">
+
+  <div class="navbar-brand">
+    <a class="home" mat-button routerLink="/" >Home</a>
+    <a class="home" mat-button routerLink="/instructors" >Instructors</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbar-list-5">
+
+    <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item">
+        <a class="login" *ngIf="!auth.isLoggedIn()" mat-button routerLink="/login" routerLinkActive="mat-accent">Log In</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="auth.isLoggedIn()" mat-button routerLink="/profile" routerLinkActive="mat-accent">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="auth.isLoggedIn()" mat-button (click)="auth.logout()">Logout</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

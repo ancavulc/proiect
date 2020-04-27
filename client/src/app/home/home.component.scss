@@ -1,0 +1,118 @@
+.page-header {
+  background-color: #B2AFAB;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-header .filter::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.page-header.page-header-small {
+  min-height: 65vh !important;
+  max-height: 700px;
+}
+.page-header.page-header-xs {
+  min-height: 40vh !important;
+}
+.page-header.section-dark .content-center,
+.page-header.section-dark .category-absolute {
+  z-index: 1;
+}
+
+.page-header .motto {
+  text-align: left;
+  z-index: 3;
+  color: #fff;
+  position: relative;
+}
+
+.presentation-title {
+  font-size: 8em;
+  font-weight: 700;
+  margin: 0;
+  color: #FFFFFF;
+  background: #fbf8ec;
+  background: -moz-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+  background: -webkit-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+  background: linear-gradient(to bottom, #FFFFFF 35%, #4e6773 100%);
+  -webkit-background-clip: text;
+}
+
+.moving-clouds {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 250.625em;
+  height: 43.75em;
+  -webkit-animation: cloudLoop 80s linear infinite;
+  animation: cloudLoop 80s linear infinite;
+}
+
+@keyframes cloudLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.following img {
+  max-width: 70px;
+}
+
+.subtitle {
+  margin-top: 50px;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  letter-spacing: -0.6px;
+  word-spacing: 0.4px;
+  color: #93BBCB;
+  font-weight: 400;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
+}
+
+.introductionCard {
+  margin-top: 20px;
+}
+
+.divider {
+  margin-bottom: 50px;
+}
+
+.expansionPanel{
+  margin-bottom: 20px;
+}
+
+.main {
+  background-color: #ebebeb;
+}
+
+.img-welcome{
+  width: 500px;
+  height: 350px;
+  border: 1px solid #ddd;
+  padding: 5px;
+}

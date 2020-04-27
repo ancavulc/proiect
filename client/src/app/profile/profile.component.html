@@ -1,0 +1,69 @@
+<div class="cover">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="profile-card">
+      <div class="container">
+        <div class="d-flex bd-highlight mb-3">
+          <div class="mr-auto p-2 bd-highlight">
+            <h2>Hi, {{details.name}}!</h2>
+          </div>
+          <div class="p-2 bd-highlight" *ngIf="this.userMode==='user'"><a mat-button routerLink="/edit"
+              routerLinkActive="mat-accent">Edit Profile</a>
+          </div>
+        </div>
+        <hr>
+        <div class="profile-body">
+          <div class="d-flex justify-content-center" *ngIf="this.userMode==='user'">
+            <h4 class="text-info">Please keep you personal information up to date!</h4>
+          </div>
+          <hr>
+          <div class="d-flex bd-highlight">
+            <div class="first-row">
+              <div class="p-2 flex-fill bd-highlight">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <img src="https://civilcode.ge/images/2/24/Blank-avatar.png" class="img-thumbnail"
+                      alt="Responsive Image" width="250" height="190">
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <h2>{{details.name}} {{details.surname}}</h2>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <h3 class="personal-info">Personal Information</h3>
+                    <hr class="personal">
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p class="bold">Phone Number:</p>{{details.phoneNumber}}
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p class="bold">Town of Origin:</p>{{details.email}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="second-row">
+            <div class="p-2 flex-fill bd-highlight">
+              <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <p class="bold">About Me</p>
+                  <p>{{details.description}}Vestibulum a arcu lacinia est molestie sollicitudin. Pellentesque vel justo
+                    mi. Sed fringilla nunc quam, ac dapibus ante mollis vitae. Aliquam vitae volutpat velit. Aenean
+                    lacinia nisl at interdum dignissim. Maecenas velit purus, elementum sed varius nec, viverra at nibh.
+                    Ut congue blandit orci, sed fringilla mauris sodales ac. Aliquam nec finibus nisl, quis blandit
+                    eros. Integer ipsum eros, venenatis ac lobortis sed, gravida quis ex. Nunc dolor elit, finibus
+                    posuere gravida in, commodo nec justo. Nunc quis vulputate erat. Fusce sed vestibulum lectus. Ut
+                    vulputate cursus ipsum eu malesuada..</p>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <p class="bold">Available Slope</p>
+                  <p>{{details.slope}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

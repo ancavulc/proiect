@@ -1,0 +1,64 @@
+mat-spinner {
+  margin: auto;
+}
+
+.login-header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.login-card {
+  max-width: 300px;
+}
+
+.login-button {
+  margin-top: 40px;
+}
+
+.register-btn {
+  text-decoration: none;
+  color: #e82727;
+}
+
+.redirect-btn {
+  text-decoration: none;
+  color: #e82727;
+}
+
+.redirect {
+  font-size: 13px;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.cover {
+  background-color: #B2AFAB;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 990px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover .filter::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}

@@ -1,0 +1,32 @@
+<div class="cover">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="profile-card">
+      <div class="container">
+        <div class="header">
+          <h2>Instructors</h2>
+        </div>
+        <hr>
+        <div class="d-flex flex-column bd-highlight mb-3">
+          <div class="p-2 bd-highlight">
+            <h3 class="bold">Sinaia</h3>
+            <div *ngFor="let e of details">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{e.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              </mat-card>
+            </div>
+          </div>
+          <div class="p-2 bd-highlight">
+            <h3 class="bold">Busteni</h3>
+          </div>
+          <div class="p-2 bd-highlight">
+            <h3 class="bold">Azuga</h3>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

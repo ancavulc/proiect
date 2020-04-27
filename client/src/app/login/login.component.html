@@ -1,0 +1,33 @@
+<div class="cover" style="background-image: url('./assets/img/mountain.jpg');">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="login-card">
+      <div class="container">
+        <div class="login-header">
+          <h2>Login</h2>
+        </div>
+        <div class="login-body">
+          <h3 class="lead">Not a member? Please <a class="register-btn" routerLink="/register">REGISTER</a> instead.
+          </h3>
+          <h4 class="redirect">* this is only for instructors. Want to book one? Click <a class="redirect-btn"
+              routerLink="/">HERE</a> instead</h4>
+          <form (submit)="login()">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter email"
+                [(ngModel)]="credentials.email" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password"
+                [(ngModel)]="credentials.password" />
+            </div>
+            <div class="login-button">
+              <button mat-raised-button color="accent" type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
