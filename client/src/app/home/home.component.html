@@ -7,7 +7,7 @@
       <h1 class="presentation-title">skiReserve</h1>
       <h2 class="subtitle">First Romanian online reservation platform for winter sports</h2>
       <br />
-      <a class="bookInstructor" mat-stroked-button>Book Instructor</a>
+      <a class="bookInstructor" mat-flat-button routerLink="/book">Book Instructor</a>
     </div>
     <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
   </div>
@@ -22,7 +22,7 @@
 
           <mat-card class="introductionCard">
             <div class="introHeader">
-              <h2>Welcome to skiReserve!</h2>
+              <h2 class="welcome">Welcome to skiReserve</h2>
             </div>
             <div class="divider">
               <mat-divider></mat-divider>
@@ -32,8 +32,25 @@
                 <img class="img-welcome" src="./assets/img/ski-instructor.jpg">
               </div>
               <div class="p-2 flex-fill bd-highlight">
-                <div class="introBody">
-                  <h4>skiReserve is an online platform that links clients to ski instructors in order to make it accessible to everyone!</h4>
+                <div class="text-justify">
+                  <h4 class="head3">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are you a lover of mountain ridges? Have you often sat at the base of
+                    the slope and admired the
+                    courage and skill of the talented skiers? Do you dream of being among them and
+                    feeling the adrenaline?</h4>
+                  <h4 class="head3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You have reached the perfect platform to help you
+                    fulfill your dream and feel the snow creaking under
+                    your skis, along with the most passionate and professional ski instructors.
+                    We guarantee that all ski instructors registered on skiReserve are good professionals,
+                    ISIA members, who adapt to the physical condition, experience and age of applicants, beginners or
+                    advanced skiers.
+                    They offer both private ski lessons and group lessons. Which do you prefer?</h4>
+                  <h4 class="head3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you felt the attraction of the mountain and the
+                    immaculate white of the snow, I invite you to
+                    choose the ski instructor you resonate with and ... up on the slope !!</h4>
+                  <h4 class="head3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At the heart of perseverance is the strength of the
+                    desire to feel the mountain in all its
+                    splendor and the confidence that you will find the perfect ski monitor !!</h4>
                 </div>
               </div>
             </div>
@@ -51,15 +68,20 @@
           <mat-card class="contentCard">
             <div class="contentHeader">
               <div class="d-flex justify-content-center">
-                <div class="p-2 bd-highlight"><mat-icon>perm_contact_calendar</mat-icon></div>
-                <div class="p-2 bd-highlight"><h3><b>Certified Instructors</b></h3></div>
+                <div class="p-2 bd-highlight">
+                  <mat-icon>perm_contact_calendar</mat-icon>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <h3><b>Certified Instructors</b></h3>
+                </div>
               </div>
             </div>
             <div class="contentBody">
-              <span>content body</span>
-            </div>
-            <div class="contentFooter">
-              <span>content footer</span>
+              <p class="text-justify head4">The importance of having the right ski instructor shouldn't be underestimated, an
+                instructor that
+                suits your needs will really help make your holiday unforgettable. On skiReserve it's simple to learn
+                more about each instructor, check their profile and reviews and send them a message prior to booking anf
+                paying for any lessons.</p>
             </div>
           </mat-card>
 
@@ -70,15 +92,17 @@
           <mat-card class="contentCard">
             <div class="contentHeader">
               <div class="d-flex justify-content-center">
-                <div class="p-2 bd-highlight"><mat-icon>lock</mat-icon></div>
-                <div class="p-2 bd-highlight"><h3><b>Easy Reservation</b></h3></div>
+                <div class="p-2 bd-highlight">
+                  <mat-icon>lock</mat-icon>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <h3><b>Easy Reservation</b></h3>
+                </div>
               </div>
             </div>
             <div class="contentBody">
-              <span>content body</span>
-            </div>
-            <div class="contentFooter">
-              <span>content footer</span>
+              <p class="text-justify head4"> With skiReserve, long-winded email chains, awkward phone calls, transfer day mayhem
+                and closed booking offices are a thing of the past! Book online in just a few clicks.</p>
             </div>
           </mat-card>
 
@@ -89,15 +113,20 @@
           <mat-card class="contentCard">
             <div class="contentHeader">
               <div class="d-flex justify-content-center">
-                <div class="p-2 bd-highlight"><mat-icon>room</mat-icon></div>
-                <div class="p-2 bd-highlight"><h3><b>Best Slopes</b></h3></div>
+                <div class="p-2 bd-highlight">
+                  <mat-icon>room</mat-icon>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <h3><b>Search & choose</b></h3>
+                </div>
               </div>
             </div>
             <div class="contentBody">
-              <span>content body</span>
-            </div>
-            <div class="contentFooter">
-              <span>content footer</span>
+              <p class="text-justify head4">Search for an instructor and choose based past reviews, pricing and skills. 70% of
+                all ski and
+                snowboard lessons on skiReserve are reviewed, verified reviews from an instructor's past customers
+                provide invaluable information when choosing an instructor. You can see whether an instructor regularly
+                delivers a high quality service.</p>
             </div>
           </mat-card>
 
@@ -121,37 +150,44 @@
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      Why am I fat?
+                      What if I have a question about a lesson before booking?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <p>I'm visible because I am open</p>
+                  <p class="text-justify">You can get in touch with the instructor directly if you have any questions
+                    about lessons prior to
+                    making a booking. To contact an instructor, go to his/her profile and check their phone number.</p>
                 </mat-expansion-panel>
 
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      Why am I fat?
+                      Where do I meet my instructor?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <p>I'm visible because I am open</p>
+                  <p class="text-justify">You can arrange the meeting point with your chosen instructor by personally
+                    contacting him using
+                    the phone number displayed on each profile. We recommend agreeing this before you book your lessons,
+                    but it can be arranged at a later date. The instructor should be able to suggest somewhere that is
+                    convenient for you both.</p>
                 </mat-expansion-panel>
 
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      Why am I fat?
+                      Can I cancel a booking with an instructor?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <p>I'm visible because I am open</p>
+                  <p class="text-justify">Yes, you can do this by personally contacting the instructor.</p>
                 </mat-expansion-panel>
 
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      Why am I fat?
+                      How can I leave a review?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <p>I'm visible because I am open</p>
+                  <p class="text-justify">Go to the Instructors page, choose your instructor's profile and write a
+                    review.</p>
                 </mat-expansion-panel>
 
               </mat-accordion>

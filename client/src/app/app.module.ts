@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from "./angular-material.module";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
@@ -17,7 +18,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ListInstructorsComponent } from './list-instructors/list-instructors.component';
-import { CardInstructorComponent } from './card-instructor/card-instructor.component';
+import { BookInstructorComponent } from './book-instructor/book-instructor.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "instructors", component: ListInstructorsComponent },
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: "edit", component: EditProfileComponent, canActivate: [AuthGuardService] }
+  { path: "edit", component: EditProfileComponent, canActivate: [AuthGuardService] },
+  { path: "book", component: BookInstructorComponent },
 ];
 
 @NgModule({
@@ -38,7 +40,7 @@ const routes: Routes = [
     RegisterComponent,
     EditProfileComponent,
     ListInstructorsComponent,
-    CardInstructorComponent
+    BookInstructorComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ const routes: Routes = [
     FormsModule,
     AngularMaterialModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

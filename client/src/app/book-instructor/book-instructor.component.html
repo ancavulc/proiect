@@ -1,0 +1,134 @@
+<div class="cover">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="profile-card">
+      <div class="container">
+        <div class="header">
+          <h2>Book Instructor</h2>
+        </div>
+        <hr>
+        <div class="d-flex flex-column bd-highlight mb-3">
+          <div class="p-2 highlight">
+            Please note the following before booking:
+          </div>
+          <div class="p-2 bd-highlight">
+            <h3>Please fill in the form below in order to book an instructor!</h3>
+          </div>
+          <div class="p-2 bd-highlight">
+            <h2>
+              After submitting, you will be contacted by the instructor in max 48 hours to confirm the booking. Also.
+              you will be contacted in at least 2 days before the booking takes place in order to set an hour that firs
+              both you and the instructor. Please fill in the form any special requirements you want to address the
+              instructor (it is optional) and they will be taken into consideration if possible!
+            </h2>
+          </div>
+          <div class="p-2 bd-highlight">If you have selected the group option, fill in the requirements box the names of
+            your group, if they exist. Otherwise, you will be grouped with other people your level by the instructor, if
+            possible.</div>
+        </div>
+        <div class="formular">
+          <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Personal Information</ng-template>
+                <div class="d-flex flex-column bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Phone Number</mat-label>
+                      <input matInput placeholder="Please enter a valid phone number" formControlName="firstCtrl"
+                        required>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Email</mat-label>
+                      <input matInput placeholder="Please enter a valid email address" formControlName="firstCtrl"
+                        required>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Select your level</mat-label>
+                      <mat-select formControlName="firstCtrl" required>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Choose Instructor</ng-template>
+                <div class="d-flex flex-column bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Select desired slope</mat-label>
+                      <mat-select formControlName="secondCtrl" required>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Select desired instructor</mat-label>
+                      <mat-select formControlName="secondCtrl" required>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Choose Session</mat-label>
+                      <mat-select formControlName="secondCtrl" required>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                      <mat-label>Choose Date</mat-label>
+                      <input matInput [matDatepicker]="picker">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker touchUi #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              <p>You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
