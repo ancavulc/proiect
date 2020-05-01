@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, UserDetails } from '../authentication.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-instructors',
@@ -8,11 +10,11 @@ import { AuthenticationService, UserDetails } from '../authentication.service';
 })
 export class ListInstructorsComponent implements OnInit {
 
-  details: any = [];
+  IntructorData: any = [];
 
   constructor(private auth: AuthenticationService) {
-    this.auth.getInstructors().subscribe(data => {
-      this.details = data;
+    this.auth.GetInstructors().subscribe(data => {
+      this.IntructorData = data;
     })
   }
 

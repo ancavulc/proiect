@@ -15,12 +15,9 @@ export class BookInstructorComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+  levels: string[] = [
+    'Never skied before', 'Beginner', 'Intermediate', 'Advanced'
   ];
-
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

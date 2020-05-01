@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,7 +9,7 @@ import { AuthenticationService, UserDetails, TokenPayload } from '../authenticat
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
-
+  studentForm: FormGroup;
   details: UserDetails;
   userMode: string;
 
@@ -24,13 +26,22 @@ export class EditProfileComponent implements OnInit {
     town: ''
   };
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(public fb: FormBuilder, private auth: AuthenticationService, private actRoute: ActivatedRoute, private router: Router, private ngZone: NgZone) {
+    var id = this.actRoute.snapshot.paramMap.get('id');
+    this.auth.GetInstructor(id).subscribe(data => {
+      console.log(data.subjects)
+      this.studentForm = this.fb.group({
+        name: [data.name, [Validators.required]],
+        surname: [data.surname, [Validators.required]],
+        email: [data.email, [Validators.required]],
+        phoneNumber: [data.phoneNumber, [Validators.required]],
+        description: [data.description, [Validators.required]],
+        town: [data.town, [Validators.required]]
+      })
+    })
+   }
 
   ngOnInit(): void {
-
-    let states = [
-      'Sinaia', 'Busteni', 'Azuga'
-    ];
 
     this.auth.profile().subscribe(user => {
       this.details = user;
@@ -38,5 +49,16 @@ export class EditProfileComponent implements OnInit {
     }, (err) => {
       console.error(err);
     });
+
+  }
+
+  updateStudentForm() {
+    console.log(this.studentForm.value)
+    var id = this.actRoute.snapshot.paramMap.get('id');
+    if (window.confirm('Are you sure you want to update?')) {
+      this.auth.UpdateInstructor(id, this.studentForm.value).subscribe(res => {
+        this.ngZone.run(() => this.router.navigateByUrl('/profile'))
+      });
+    }
   }
 }

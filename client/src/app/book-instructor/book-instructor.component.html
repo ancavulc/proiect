@@ -4,27 +4,38 @@
     <mat-card class="profile-card">
       <div class="container">
         <div class="header">
-          <h2>Book Instructor</h2>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">
+              <h2>Book Instructor</h2>
+            </div>
+            <div class="p-2 bd-highlight" ><a mat-button routerLink="/instructors"
+                routerLinkActive="mat-accent">Go back to Instructors</a>
+            </div>
+          </div>
         </div>
         <hr>
         <div class="d-flex flex-column bd-highlight mb-3">
-          <div class="p-2 highlight">
-            Please note the following before booking:
+          <div class="p-2 highlight ">
+            <p class="text-justofy warn">Please note the following before booking:</p>
           </div>
           <div class="p-2 bd-highlight">
-            <h3>Please fill in the form below in order to book an instructor!</h3>
-          </div>
-          <div class="p-2 bd-highlight">
-            <h2>
+            <p class="text-justify p2">
               After submitting, you will be contacted by the instructor in max 48 hours to confirm the booking. Also.
               you will be contacted in at least 2 days before the booking takes place in order to set an hour that firs
               both you and the instructor. Please fill in the form any special requirements you want to address the
               instructor (it is optional) and they will be taken into consideration if possible!
-            </h2>
+            </p>
           </div>
-          <div class="p-2 bd-highlight">If you have selected the group option, fill in the requirements box the names of
-            your group, if they exist. Otherwise, you will be grouped with other people your level by the instructor, if
-            possible.</div>
+          <div class="p-2 bd-highlight margin">
+            <p class="text-justify p2">
+              If you have selected the group option, fill in the requirements box the names of
+              your group, if they exist. Otherwise, you will be grouped with other people your level by the instructor,
+              if
+              possible.</p>
+          </div>
+          <div class="p-2 bd-highlight">
+            <p class="text-justofy p1">Please fill in the form below in order to book an instructor</p>
+          </div>
         </div>
         <div class="formular">
           <mat-horizontal-stepper linear #stepper>
@@ -56,8 +67,8 @@
                     <mat-form-field>
                       <mat-label>Select your level</mat-label>
                       <mat-select formControlName="firstCtrl" required>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                          {{food.viewValue}}
+                        <mat-option *ngFor="let level of levels" [value]="level">
+                          {{level}}
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
@@ -73,7 +84,7 @@
                 <ng-template matStepLabel>Choose Instructor</ng-template>
                 <div class="d-flex flex-column bd-highlight mb-3">
                   <div class="p-2 bd-highlight">
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                       <mat-label>Select desired slope</mat-label>
                       <mat-select formControlName="secondCtrl" required>
                         <mat-option *ngFor="let food of foods" [value]="food.value">
@@ -100,7 +111,7 @@
                           {{food.viewValue}}
                         </mat-option>
                       </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
                   </div>
                   <div class="p-2 bd-highlight">
                     <mat-form-field>

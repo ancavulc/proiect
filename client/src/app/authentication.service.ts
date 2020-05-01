@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { catchError, retry } from 'rxjs/operators';
-import { ApiResponse } from './model/api.response';
 
 export interface UserDetails {
   _id: string;
@@ -76,7 +75,7 @@ export class AuthenticationService {
     }
   }
 
-  private request(method: 'post' | 'get' | 'put', type: 'login' | 'register' | 'profile' | 'edit', user?: TokenPayload): Observable<any> {
+  private request(method: 'post' | 'get', type: 'login' | 'register' | 'profile', user?: TokenPayload): Observable<any> {
     let base;
 
     if (method === 'post') {
@@ -101,14 +100,6 @@ export class AuthenticationService {
     return request;
   }
 
-  getUserById(id: number): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(`http://localhost:3000/api/` + id);
-  }
-
-  updateUser(user: UserDetails): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(`http://localhost:3000/api/edit/` + user._id, user);
-  }
-
   public register(user: TokenPayload): Observable<any> {
     return this.request('post', 'register', user);
   }
@@ -121,18 +112,31 @@ export class AuthenticationService {
     return this.request('get', 'profile');
   }
 
-  public edit(): Observable<any> {
-    return this.request('put', 'edit');
+  // Get student
+  GetInstructor(id): Observable<any> {
+    let API_URL = `http://localhost:3000/api/read/${id}`;
+    return this.http.get(API_URL)
+      .pipe(
+        map((res: Response) => {
+          return res || {}
+        })
+      )
   }
 
-  getInstructors() {
-    return this.http.get(`http://localhost:3000/api/instructors`);
+  UpdateInstructor(id, data): Observable<any> {
+    let API_URL = `http://localhost:3000/api/edit/${id}`;
+    return this.http.put(API_URL, data);
   }
 
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
     this.router.navigateByUrl('/');
+  }
+
+  // Get all students
+  GetInstructors() {
+    return this.http.get(`http://localhost:3000/api`);
   }
 
 }

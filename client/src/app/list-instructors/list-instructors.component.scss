@@ -3,7 +3,6 @@
   background-position: center center;
   background-size: cover;
   min-height: 100vh;
-  max-height: 990px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -42,4 +41,14 @@
 .bold {
   font-weight: bold;
   margin-bottom: 13px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.example-card {
+  width: 300px;
+  height: 300px;
+  margin: auto;
 }

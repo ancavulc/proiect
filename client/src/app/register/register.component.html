@@ -9,8 +9,8 @@
         <div class="login-body">
           <h4>Please register only if you are a <b>certified instructor!</b></h4>
           <h4 class="redirect">* this is only for instructors. Want to book one? Click <a class="redirect-btn"
-            routerLink="/">HERE</a> instead</h4>
-          <form >
+              routerLink="/">HERE</a> instead</h4>
+          <form (submit)="register()">
             <div class="form-group">
               <label for="name">First Name</label>
               <input type="text" class="form-control" name="name" placeholder="Enter your first name"
@@ -38,8 +38,7 @@
             </div>
             <div class="form-group">
               <label for="birthDate">Birth Date</label>
-              <input type="date" class="form-control" name="birthDate"
-                [(ngModel)]="credentials.birthDate" />
+              <input type="date" class="form-control" name="birthDate" [(ngModel)]="credentials.birthDate" />
             </div>
             <div class="form-group">
               <label for="town">Town of Origin</label>
@@ -60,7 +59,7 @@
             <div class="form-group">
               <label for="description">Description</label>
               <textarea class="form-control" name="description" placeholder="Please describe yourself"
-              [(ngModel)]="credentials.description"></textarea>
+                [(ngModel)]="credentials.description"></textarea>
             </div>
             <div class="login-button">
               <button mat-raised-button color="accent" type="submit">Register</button>

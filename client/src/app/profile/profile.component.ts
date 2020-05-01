@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     this.auth.profile().subscribe(user => {
       this.details = user;
       this.userMode = 'user';
+      let id = this.details._id;
     }, (err) => {
       console.error(err);
     });

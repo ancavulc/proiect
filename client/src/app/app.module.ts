@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "instructors", component: ListInstructorsComponent },
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: "edit", component: EditProfileComponent, canActivate: [AuthGuardService] },
+  { path: "edit/:id", component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path: "book", component: BookInstructorComponent },
 ];
 

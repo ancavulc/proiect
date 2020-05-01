@@ -11,49 +11,53 @@
         <hr>
         <div class="profile-body">
           <div class="d-flex justify-content-center" *ngIf="this.userMode==='edit'">
-            <h4 class="text-info">Please review all field before saving! Please be aware that your name and certificate
-              series cannot be!</h4>
+            <h4 class="text-info">Please review all field before saving! Please be aware that your certificate
+              series cannot be modified!</h4>
           </div>
           <hr>
           <div class="d-flex justify-content-center">
-            <form>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" name="email" placeholder="{{details.email}}"
-                  [(ngModel)]="credentials.email" />
-              </div>
-              <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="tel" class="form-control" name="phoneNumber" placeholder="{{details.phoneNumber}}"
-                  [(ngModel)]="credentials.phoneNumber" />
-              </div>
-              <div class="form-group">
-                <label for="town">Town of Origin</label>
-                <input type="text" class="form-control" name="town" placeholder="{{details.town}}"
-                  [(ngModel)]="credentials.town" />
-              </div>
-              <div class="form-group">
-                <label for="slope">Selected Slope</label>
-                <select class="form-control" name="slope" [(ngModel)]="credentials.slope" >
-                  <option>Sinaia</option>
-                  <option>Busteni</option>
-                  <option>Azuga</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" name="description" placeholder="{{details.description}}"
-                  [(ngModel)]="credentials.description"></textarea>
-              </div>
-              <div class="d-flex align-items-center">
-                <div class="cancel-btn">
-                  <button mat-raised-button color="normal" type="submit" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Cancel</button>
+            <form [formGroup]="studentForm" (ngSubmit)="updateStudentForm()" #resetStudentForm="ngForm" novalidate>
+              <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name" formControlName="name">
+                  </mat-form-field>
                 </div>
-                <div class="">
-                  <button mat-raised-button color="accent" type="submit" [routerLink]="['/profile']">Save</button>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Surname" formControlName="surname">
+                  </mat-form-field>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="email">
+                  </mat-form-field>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                  </mat-form-field>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Town of Origin" formControlName="town">
+                  </mat-form-field>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                  </mat-form-field>
                 </div>
               </div>
-
+              <!-- Submit & Reset -->
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <button mat-flat-button routerLink="/profile">Cancel</button>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <button mat-flat-button color="warn">Update</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>

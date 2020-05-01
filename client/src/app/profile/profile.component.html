@@ -7,7 +7,7 @@
           <div class="mr-auto p-2 bd-highlight">
             <h2>Hi, {{details.name}}!</h2>
           </div>
-          <div class="p-2 bd-highlight" *ngIf="this.userMode==='user'"><a mat-button routerLink="/edit"
+          <div class="p-2 bd-highlight" *ngIf="this.userMode==='user'"><a mat-button [routerLink]="['/edit/', details._id]"
               routerLinkActive="mat-accent">Edit Profile</a>
           </div>
         </div>
@@ -36,7 +36,7 @@
                     <p class="bold">Phone Number:</p>{{details.phoneNumber}}
                   </div>
                   <div class="p-2 bd-highlight">
-                    <p class="bold">Town of Origin:</p>{{details.email}}
+                    <p class="bold">Town of Origin:</p>{{details.town}}
                   </div>
                 </div>
               </div>
