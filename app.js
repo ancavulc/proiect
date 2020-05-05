@@ -21,6 +21,9 @@ require('./api/config/passport');
 
 // [SH] Bring in the routes for the API (delete the default routes)
 var routesApi = require('./api/routes/index');
+var bookingsRoute = require('./api/routes/bookings.route');
+var messagesRoute = require('./api/routes/messages.route');
+var reviewsRoute = require('./api/routes/reviews.route');
 
 var app = express();
 
@@ -41,6 +44,9 @@ app.use(passport.initialize());
 
 // [SH] Use the API routes when path starts with /api
 app.use('/api', routesApi);
+app.use('/api', messagesRoute);
+app.use('/api', bookingsRoute);
+app.use('/api/reviews', reviewsRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
