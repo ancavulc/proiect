@@ -1,0 +1,87 @@
+<div class="cover">
+  <div class="filter"></div>
+  <div class="main-div">
+    <mat-card class="profile-card">
+      <div class="container">
+        <div class="header">
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">
+              <h2>You have successfully booked your instructor!</h2>
+            </div>
+            <div class="p-2 bd-highlight"><a mat-button routerLink="">Go back Home</a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex flex-column bd-highlight mb-3">
+          <div class="p-2 highlight ">
+            <p class="text-justofy warn">Thank you for your booking, we are waiting to give you the best experience!</p>
+          </div>
+          <div class="p-2 bd-highlight">
+            <p class="text-justify p2">
+              Because of that, we are continously improving our services and website, so we are looking forward from
+              hearing from you.
+              The form below will only take a minute, but will mean a lot to us! Please note that the form is anonymous.
+            </p>
+          </div>
+        </div>
+        <div class="formular">
+          <div class="d-flex justify-content-center">
+            <form [formGroup]="messagesForm" (ngSubmit)="submitForm()">
+              <div class="p-2 bd-highlight">
+                <label id="example-radio-group-label">Pick your favorite season</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  formControlName="quest1">
+                  <mat-radio-button class="example-radio-button" *ngFor="let answer of ans1" [value]="answer">
+                    {{answer}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="p-2 bd-highlight">
+                <label id="example-radio-group-label">Pick your favorite season</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  formControlName="quest2">
+                  <mat-radio-button class="example-radio-button" *ngFor="let answer of ans2" [value]="answer">
+                    {{answer}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="p-2 bd-highlight">
+                <label id="example-radio-group-label">Pick your favorite season</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  formControlName="quest3">
+                  <mat-radio-button class="example-radio-button" *ngFor="let answer of ans3" [value]="answer">
+                    {{answer}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="p-2 bd-highlight">
+                <label id="example-radio-group-label">Pick your favorite season</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  formControlName="quest4">
+                  <mat-radio-button class="example-radio-button" *ngFor="let answer of ans4" [value]="answer">
+                    {{answer}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="p-2 bd-highlight">
+                <label id="example-radio-group-label">Pick your favorite season</label>
+              </div>
+              <div class="p-2 bd-highlight">
+                <mat-form-field class="example-full-width">
+                  <textarea placeholder="Write here" matInput formControlName="quest5"></textarea>
+                </mat-form-field>
+              </div>
+              <!-- Submit & Reset -->
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <button mat-flat-button color="warn">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

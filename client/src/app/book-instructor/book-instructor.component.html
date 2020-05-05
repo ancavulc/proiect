@@ -8,8 +8,8 @@
             <div class="mr-auto p-2 bd-highlight">
               <h2>Book Instructor</h2>
             </div>
-            <div class="p-2 bd-highlight" ><a mat-button routerLink="/instructors"
-                routerLinkActive="mat-accent">Go back to Instructors</a>
+            <div class="p-2 bd-highlight"><a mat-button routerLink="/instructors" routerLinkActive="mat-accent">Go back
+                to Instructors</a>
             </div>
           </div>
         </div>
@@ -38,106 +38,91 @@
           </div>
         </div>
         <div class="formular">
-          <mat-horizontal-stepper linear #stepper>
-            <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-              <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Personal Information</ng-template>
-                <div class="d-flex flex-column bd-highlight mb-3">
-                  <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Name</mat-label>
-                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                    </mat-form-field>
+          <div class="d-flex justify-content-center">
+            <form [formGroup]="bookingsForm" (ngSubmit)="submitForm()" >
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <div class="d-flex flex-column bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Full Name" formControlName="name">
+                      </mat-form-field>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" formControlName="email">
+                      </mat-form-field>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                      </mat-form-field>
+                    </div>
                   </div>
                   <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Phone Number</mat-label>
-                      <input matInput placeholder="Please enter a valid phone number" formControlName="firstCtrl"
-                        required>
-                    </mat-form-field>
-                  </div>
-                  <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Email</mat-label>
-                      <input matInput placeholder="Please enter a valid email address" formControlName="firstCtrl"
-                        required>
-                    </mat-form-field>
-                  </div>
-                  <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Select your level</mat-label>
-                      <mat-select formControlName="firstCtrl" required>
+                    <mat-form-field class="example-full-width">
+                      <mat-select name="levels" formControlName="level">
                         <mat-option *ngFor="let level of levels" [value]="level">
                           {{level}}
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
+
                 </div>
-                <div>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-              <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Choose Instructor</ng-template>
-                <div class="d-flex flex-column bd-highlight mb-3">
-                  <div class="p-2 bd-highlight">
-                    <!-- <mat-form-field>
-                      <mat-label>Select desired slope</mat-label>
-                      <mat-select formControlName="secondCtrl" required>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                          {{food.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
+                <div class="p-2 bd-highlight">
+                  <div class="d-flex flex-column bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <mat-select name="slope" formControlName="slope">
+                          <mat-option *ngFor="let slope of slopes" [value]="slope">
+                            {{slope}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <mat-select name="instructor" formControlName="instructor">
+                          <mat-option *ngFor="let name of this.InstructorData" [value]="name.name">
+                            {{name.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                      <mat-form-field class="example-full-width">
+                        <mat-select name="session" formControlName="session">
+                          <mat-option *ngFor="let session of this.sessions" [value]="session">
+                            {{session}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
                   </div>
                   <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Select desired instructor</mat-label>
-                      <mat-select formControlName="secondCtrl" required>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                          {{food.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Choose Session</mat-label>
-                      <mat-select formControlName="secondCtrl" required>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                          {{food.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field> -->
-                  </div>
-                  <div class="p-2 bd-highlight">
-                    <mat-form-field>
-                      <mat-label>Choose Date</mat-label>
-                      <input matInput [matDatepicker]="picker">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="date">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker touchUi #picker></mat-datepicker>
                     </mat-form-field>
                   </div>
                 </div>
-
-                <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button>
+                <div class="p-2 bd-highlight">
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="Requirements" formControlName="requirements"></textarea>
+                  </mat-form-field>
                 </div>
-              </form>
-            </mat-step>
-            <mat-step>
-              <ng-template matStepLabel>Done</ng-template>
-              <p>You are now done.</p>
-              <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
               </div>
-            </mat-step>
-          </mat-horizontal-stepper>
+              <!-- Submit & Reset -->
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <button mat-flat-button color="warn">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </mat-card>

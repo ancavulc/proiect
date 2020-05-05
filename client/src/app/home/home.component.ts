@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  IntructorData: any = [];
 
-  ngOnInit(): void {
+  constructor(private auth: AuthenticationService) {
+    this.auth.GetInstructors().subscribe(data => {
+      this.IntructorData = data;
+    })
   }
 
+  ngOnInit(): void {
+    this.countInstructors();
+  }
+
+  countInstructors() {
+    for (let element of this.IntructorData) {
+      console.log(element.name);
+    }
+  }
 }

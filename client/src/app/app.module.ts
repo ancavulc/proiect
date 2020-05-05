@@ -19,6 +19,10 @@ import { AuthGuardService } from './auth-guard.service';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ListInstructorsComponent } from './list-instructors/list-instructors.component';
 import { BookInstructorComponent } from './book-instructor/book-instructor.component';
+import { MessageComponent } from './message/message.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { AddReviewComponent } from './add-review/add-review.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -28,6 +32,10 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: "edit/:id", component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path: "book", component: BookInstructorComponent },
+  { path: "message", component: MessageComponent },
+  { path: "thank-you", component: ThankYouComponent },
+  { path: "reviews", component: ReviewsComponent },
+  { path: "add-review", component: AddReviewComponent }
 ];
 
 @NgModule({
@@ -40,7 +48,11 @@ const routes: Routes = [
     RegisterComponent,
     EditProfileComponent,
     ListInstructorsComponent,
-    BookInstructorComponent
+    BookInstructorComponent,
+    MessageComponent,
+    ThankYouComponent,
+    ReviewsComponent,
+    AddReviewComponent
   ],
   imports: [
     BrowserModule,

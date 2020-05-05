@@ -1,31 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { BookInstructorService } from './book-instructor.service';
+import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-instructor',
   templateUrl: './book-instructor.component.html',
-  styleUrls: ['./book-instructor.component.scss'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
-  }]
+  styleUrls: ['./book-instructor.component.scss']
 })
 export class BookInstructorComponent implements OnInit {
+  selected = 'Busteni';
+  bookingsForm: FormGroup;
+  InstructorData: any = [];
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
   levels: string[] = [
     'Never skied before', 'Beginner', 'Intermediate', 'Advanced'
   ];
-  constructor(private _formBuilder: FormBuilder) { }
+
+  slopes: string[] = [
+    'Sinaia', 'Busteni', 'Azuga'
+  ];
+
+  sessions: string[] = [
+    'Single', 'Group'
+  ];
+
+  constructor(public fb: FormBuilder, private bookApi: BookInstructorService, private auth: AuthenticationService, private router: Router,
+    private ngZone: NgZone) {
+    this.bookingsForm = this.fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
+      level: [this.levels, [Validators.required]],
+      instructor: ['', [Validators.required]],
+      slope: [this.slopes, [Validators.required]],
+      session: [this.sessions, [Validators.required]],
+      date: ['', [Validators.required]],
+      requirements: ['', [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    this.auth.GetInstructors().subscribe(data => {
+      this.InstructorData = data;
+    })
+  }
+
+  submitForm() {
+    if (this.bookingsForm.valid) {
+      this.bookApi.AddBooking(this.bookingsForm.value).subscribe(res => {
+        this.ngZone.run(() => this.router.navigateByUrl('/message'))
+      });
+    }
   }
 }
